@@ -1,0 +1,5 @@
+CATÁLOGO DE REFERÊNCIA — CAPINHAS E PELÍCULAS
+
+Este pacote contém as 17 imagens enviadas pelo usuário, renomeadas e separadas em CAPINHAS e PELICULAS, além de um catálogo HTML.
+
+A proposta é usar uma imagem como referência visual de cada linha de produto e listar abaixo todos os modelos disponíveis daquela linha.
