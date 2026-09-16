@@ -104,7 +104,7 @@ const products = [
     price: 9.90,
     stock: 2,
     category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_01.jpg'
+    image: 'PELICULAS/referencia_pelicula_07.jpg'
   },
   {
     id: 11,
@@ -113,7 +113,7 @@ const products = [
     price: 9.90,
     stock: 2,
     category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_01.jpg'
+    image: 'PELICULAS/referencia_pelicula_07.jpg'
   },
   {
     id: 12,
@@ -122,7 +122,7 @@ const products = [
     price: 9.90,
     stock: 2,
     category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_01.jpg'
+    image: 'PELICULAS/referencia_pelicula_07.jpg'
   },
   {
     id: 13,
@@ -131,7 +131,7 @@ const products = [
     price: 9.90,
     stock: 2,
     category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_01.jpg'
+    image: 'PELICULAS/referencia_pelicula_07.jpg'
   },
   {
     id: 14,
@@ -140,7 +140,7 @@ const products = [
     price: 9.90,
     stock: 2,
     category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_01.jpg'
+    image: 'PELICULAS/referencia_pelicula_07.jpg'
   },
 
   // PRIVACIDADE
@@ -225,7 +225,7 @@ const products = [
     price: 9.90,
     stock: 2,
     category: 'peliculas xiaomi',
-    image: 'PELICULAS/referencia_pelicula_03.jpg'
+    image: 'PELICULAS/referencia_pelicula_01.jpg'
   },
   {
     id: 24,
@@ -234,7 +234,7 @@ const products = [
     price: 9.90,
     stock: 2,
     category: 'peliculas xiaomi',
-    image: 'PELICULAS/referencia_pelicula_03.jpg'
+    image: 'PELICULAS/referencia_pelicula_01.jpg'
   },
   {
     id: 25,
@@ -243,10 +243,10 @@ const products = [
     price: 9.90,
     stock: 2,
     category: 'peliculas xiaomi',
-    image: 'PELICULAS/referencia_pelicula_03.jpg'
+    image: 'PELICULAS/referencia_pelicula_01.jpg'
   },
 
-  // PELÍCULA VIDRO
+  // PELÍCULA VIDRO XIAOMI
   {
     id: 26,
     name: 'Película Vidro',
@@ -301,6 +301,8 @@ const products = [
     category: 'peliculas xiaomi',
     image: 'PELICULAS/referencia_pelicula_03.jpg'
   },
+
+  // PELÍCULA VIDRO MOTOROLA
   {
     id: 32,
     name: 'Película Vidro',
@@ -308,7 +310,7 @@ const products = [
     price: 9.90,
     stock: 2,
     category: 'peliculas motorola',
-    image: 'PELICULAS/referencia_pelicula_07.jpg'
+    image: 'PELICULAS/referencia_pelicula_06.jpg'
   },
   {
     id: 33,
@@ -317,7 +319,7 @@ const products = [
     price: 9.90,
     stock: 2,
     category: 'peliculas motorola',
-    image: 'PELICULAS/referencia_pelicula_07.jpg'
+    image: 'PELICULAS/referencia_pelicula_06.jpg'
   },
 
   // CAPINHA ANTISHOCK
@@ -339,7 +341,7 @@ const products = [
     price: 19.90,
     stock: 3,
     category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_06.jpg'
+    image: 'CAPINHAS/referencia_capinha_03.jpg'
   },
   {
     id: 36,
@@ -348,7 +350,7 @@ const products = [
     price: 19.90,
     stock: 3,
     category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_06.jpg'
+    image: 'CAPINHAS/referencia_capinha_03.jpg'
   },
   {
     id: 37,
@@ -357,7 +359,7 @@ const products = [
     price: 19.90,
     stock: 3,
     category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_06.jpg'
+    image: 'CAPINHAS/referencia_capinha_03.jpg'
   },
   {
     id: 38,
@@ -366,7 +368,7 @@ const products = [
     price: 19.90,
     stock: 3,
     category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_06.jpg'
+    image: 'CAPINHAS/referencia_capinha_03.jpg'
   },
   {
     id: 39,
@@ -375,7 +377,7 @@ const products = [
     price: 19.90,
     stock: 3,
     category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_06.jpg'
+    image: 'CAPINHAS/referencia_capinha_03.jpg'
   },
   {
     id: 40,
@@ -384,7 +386,7 @@ const products = [
     price: 21.90,
     stock: 3,
     category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_06.jpg'
+    image: 'CAPINHAS/referencia_capinha_03.jpg'
   },
   {
     id: 41,
@@ -393,7 +395,7 @@ const products = [
     price: 21.90,
     stock: 3,
     category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_06.jpg'
+    image: 'CAPINHAS/referencia_capinha_03.jpg'
   },
   {
     id: 42,
@@ -402,7 +404,7 @@ const products = [
     price: 24.90,
     stock: 3,
     category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_06.jpg'
+    image: 'CAPINHAS/referencia_capinha_03.jpg'
   },
   {
     id: 43,
@@ -411,7 +413,7 @@ const products = [
     price: 24.90,
     stock: 3,
     category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_06.jpg'
+    image: 'CAPINHAS/referencia_capinha_03.jpg'
   },
   {
     id: 44,
@@ -420,7 +422,7 @@ const products = [
     price: 29.90,
     stock: 2,
     category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_06.jpg'
+    image: 'CAPINHAS/referencia_capinha_03.jpg'
   },
 
   // SILICONE
@@ -523,7 +525,7 @@ const products = [
     price: 29.90,
     stock: 3,
     category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_02.jpg'
+    image: 'CAPINHAS/referencia_capinha_06.jpg'
   },
 
   // SAMSUNG
