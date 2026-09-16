@@ -1,961 +1,420 @@
 const WHATSAPP_NUMBER = "5531998929423";
 
-const money = n => n.toLocaleString('pt-BR', {
-  style: 'currency',
-  currency: 'BRL'
-});
-
-// As imagens estão na raiz do GitHub.
-// Remove "PELICULAS/" ou "CAPINHAS/" quando existir.
-const img = p => p.split('/').pop();
+const img = p => p;
 
 const products = [
+  {id:1,name:'Película Transformação',model:'iPhone 13 Pro Max',price:24.90,stock:1,category:'peliculas iphone',image:'referencia_capinha_09.jpg'},
+  {id:2,name:'Película Transformação',model:'iPhone 14 Pro / 15 Pro',price:24.90,stock:3,category:'peliculas iphone',image:'referencia_capinha_09.jpg'},
+  {id:3,name:'Película Transformação',model:'iPhone 14 Pro Max / 15 Pro Max',price:24.90,stock:2,category:'peliculas iphone',image:'referencia_capinha_09.jpg'},
 
-  // PELÍCULAS TRANSFORMAÇÃO
-  {
-    id: 1,
-    name: 'Película Transformação',
-    model: 'iPhone 13 Pro Max',
-    price: 24.90,
-    stock: 1,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_02.jpg'
-  },
-  {
-    id: 2,
-    name: 'Película Transformação',
-    model: 'iPhone 14 Pro / 15 Pro',
-    price: 24.90,
-    stock: 3,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_02.jpg'
-  },
-  {
-    id: 3,
-    name: 'Película Transformação',
-    model: 'iPhone 14 Pro Max / 15 Pro Max',
-    price: 24.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_02.jpg'
-  },
+  {id:4,name:'Película Traseira Cerâmica',model:'iPhone 15',price:9.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_05.jpg'},
+  {id:5,name:'Película Traseira Cerâmica',model:'iPhone 15 Pro Max',price:9.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_05.jpg'},
+  {id:6,name:'Película Traseira Cerâmica',model:'iPhone 16',price:9.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_05.jpg'},
+  {id:7,name:'Película Traseira Cerâmica',model:'iPhone 16 Pro Max',price:9.90,stock:3,category:'peliculas iphone',image:'referencia_pelicula_05.jpg'},
+  {id:8,name:'Película Traseira Cerâmica',model:'iPhone 17',price:9.90,stock:4,category:'peliculas iphone',image:'referencia_pelicula_05.jpg'},
+  {id:9,name:'Película Traseira Cerâmica',model:'iPhone 17 Pro Max',price:9.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_05.jpg'},
 
-  // PELÍCULA TRASEIRA CERÂMICA
-  {
-    id: 4,
-    name: 'Película Traseira Cerâmica',
-    model: 'iPhone 15',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_05.jpg'
-  },
-  {
-    id: 5,
-    name: 'Película Traseira Cerâmica',
-    model: 'iPhone 15 Pro Max',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_05.jpg'
-  },
-  {
-    id: 6,
-    name: 'Película Traseira Cerâmica',
-    model: 'iPhone 16',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_05.jpg'
-  },
-  {
-    id: 7,
-    name: 'Película Traseira Cerâmica',
-    model: 'iPhone 16 Pro Max',
-    price: 9.90,
-    stock: 3,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_05.jpg'
-  },
-  {
-    id: 8,
-    name: 'Película Traseira Cerâmica',
-    model: 'iPhone 17',
-    price: 9.90,
-    stock: 4,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_05.jpg'
-  },
-  {
-    id: 9,
-    name: 'Película Traseira Cerâmica',
-    model: 'iPhone 17 Pro Max',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_05.jpg'
-  },
+  {id:10,name:'Película Câmera de Vidro',model:'iPhone 13 Pro / Pro Max',price:9.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_08.jpg'},
+  {id:11,name:'Película Câmera de Vidro',model:'iPhone 14 Pro / Pro Max',price:9.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_08.jpg'},
+  {id:12,name:'Película Câmera de Vidro',model:'iPhone 15 Pro / Pro Max',price:9.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_08.jpg'},
+  {id:13,name:'Película Câmera de Vidro',model:'iPhone 16 / 17',price:9.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_08.jpg'},
+  {id:14,name:'Película Câmera de Vidro',model:'iPhone 17 Pro Max',price:9.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_08.jpg'},
 
-  // PELÍCULA CÂMERA
-  {
-    id: 10,
-    name: 'Película Câmera de Vidro',
-    model: 'iPhone 13 Pro / Pro Max',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_07.jpg'
-  },
-  {
-    id: 11,
-    name: 'Película Câmera de Vidro',
-    model: 'iPhone 14 Pro / Pro Max',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_07.jpg'
-  },
-  {
-    id: 12,
-    name: 'Película Câmera de Vidro',
-    model: 'iPhone 15 Pro / Pro Max',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_07.jpg'
-  },
-  {
-    id: 13,
-    name: 'Película Câmera de Vidro',
-    model: 'iPhone 16 / 17',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_07.jpg'
-  },
-  {
-    id: 14,
-    name: 'Película Câmera de Vidro',
-    model: 'iPhone 17 Pro Max',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_07.jpg'
-  },
+  {id:15,name:'Película Privacidade Cerâmica',model:'iPhone 13 Pro Max',price:14.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_04.jpg'},
+  {id:16,name:'Película Privacidade Cerâmica',model:'iPhone 14 Pro Max',price:14.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_04.jpg'},
+  {id:17,name:'Película Privacidade Cerâmica',model:'iPhone 15',price:14.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_04.jpg'},
+  {id:18,name:'Película Privacidade Cerâmica',model:'iPhone 15 Pro Max',price:14.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_04.jpg'},
+  {id:19,name:'Película Privacidade Cerâmica',model:'iPhone 16',price:14.90,stock:3,category:'peliculas iphone',image:'referencia_pelicula_04.jpg'},
+  {id:20,name:'Película Privacidade Cerâmica',model:'iPhone 16 Pro Max',price:14.90,stock:3,category:'peliculas iphone',image:'referencia_pelicula_04.jpg'},
+  {id:21,name:'Película Privacidade Cerâmica',model:'iPhone 17',price:14.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_04.jpg'},
+  {id:22,name:'Película Privacidade Cerâmica',model:'iPhone 17 Pro Max',price:14.90,stock:2,category:'peliculas iphone',image:'referencia_pelicula_04.jpg'},
 
-  // PRIVACIDADE
-  {
-    id: 15,
-    name: 'Película Privacidade Cerâmica',
-    model: 'iPhone 13 Pro Max',
-    price: 14.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_04.jpg'
-  },
-  {
-    id: 16,
-    name: 'Película Privacidade Cerâmica',
-    model: 'iPhone 14 Pro Max',
-    price: 14.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_04.jpg'
-  },
-  {
-    id: 17,
-    name: 'Película Privacidade Cerâmica',
-    model: 'iPhone 15',
-    price: 14.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_04.jpg'
-  },
-  {
-    id: 18,
-    name: 'Película Privacidade Cerâmica',
-    model: 'iPhone 15 Pro Max',
-    price: 14.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_04.jpg'
-  },
-  {
-    id: 19,
-    name: 'Película Privacidade Cerâmica',
-    model: 'iPhone 16',
-    price: 14.90,
-    stock: 3,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_04.jpg'
-  },
-  {
-    id: 20,
-    name: 'Película Privacidade Cerâmica',
-    model: 'iPhone 16 Pro Max',
-    price: 14.90,
-    stock: 3,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_04.jpg'
-  },
-  {
-    id: 21,
-    name: 'Película Privacidade Cerâmica',
-    model: 'iPhone 17',
-    price: 14.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_04.jpg'
-  },
-  {
-    id: 22,
-    name: 'Película Privacidade Cerâmica',
-    model: 'iPhone 17 Pro Max',
-    price: 14.90,
-    stock: 2,
-    category: 'peliculas iphone',
-    image: 'PELICULAS/referencia_pelicula_04.jpg'
-  },
+  {id:23,name:'Película Xiaomi',model:'Poco X8 Pro Max',price:9.90,stock:2,category:'peliculas xiaomi',image:'referencia_pelicula_01.jpg'},
+  {id:24,name:'Película Xiaomi',model:'Redmi 10C / 12C / A3 / Poco C55 / C40',price:9.90,stock:2,category:'peliculas xiaomi',image:'referencia_pelicula_01.jpg'},
+  {id:25,name:'Película Xiaomi',model:'Redmi Note 10/10S/11/11S/12S/Poco M5s/M4 Pro',price:9.90,stock:2,category:'peliculas xiaomi',image:'referencia_pelicula_01.jpg'},
 
-  // XIAOMI
-  {
-    id: 23,
-    name: 'Película Xiaomi',
-    model: 'Poco X8 Pro Max',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas xiaomi',
-    image: 'PELICULAS/referencia_pelicula_01.jpg'
-  },
-  {
-    id: 24,
-    name: 'Película Xiaomi',
-    model: 'Redmi 10C / 12C / A3 / Poco C55 / C40',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas xiaomi',
-    image: 'PELICULAS/referencia_pelicula_01.jpg'
-  },
-  {
-    id: 25,
-    name: 'Película Xiaomi',
-    model: 'Redmi Note 10/10S/11/11S/12S/Poco M5s/M4 Pro',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas xiaomi',
-    image: 'PELICULAS/referencia_pelicula_01.jpg'
-  },
+  {id:26,name:'Película Vidro',model:'Poco M7',price:9.90,stock:2,category:'peliculas xiaomi',image:'referencia_pelicula_03.jpg'},
+  {id:27,name:'Película Vidro',model:'Poco X7 Pro',price:9.90,stock:2,category:'peliculas xiaomi',image:'referencia_pelicula_03.jpg'},
+  {id:28,name:'Película Vidro',model:'Poco X8 Pro',price:9.90,stock:2,category:'peliculas xiaomi',image:'referencia_pelicula_03.jpg'},
+  {id:29,name:'Película Vidro',model:'Redmi A5',price:9.90,stock:2,category:'peliculas xiaomi',image:'referencia_pelicula_03.jpg'},
+  {id:30,name:'Película Vidro',model:'Redmi Note 13',price:9.90,stock:2,category:'peliculas xiaomi',image:'referencia_pelicula_03.jpg'},
+  {id:31,name:'Película Vidro',model:'Redmi Note 14',price:9.90,stock:2,category:'peliculas xiaomi',image:'referencia_pelicula_03.jpg'},
 
-  // PELÍCULA VIDRO XIAOMI
-  {
-    id: 26,
-    name: 'Película Vidro',
-    model: 'Poco M7',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas xiaomi',
-    image: 'PELICULAS/referencia_pelicula_03.jpg'
-  },
-  {
-    id: 27,
-    name: 'Película Vidro',
-    model: 'Poco X7 Pro',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas xiaomi',
-    image: 'PELICULAS/referencia_pelicula_03.jpg'
-  },
-  {
-    id: 28,
-    name: 'Película Vidro',
-    model: 'Poco X8 Pro',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas xiaomi',
-    image: 'PELICULAS/referencia_pelicula_03.jpg'
-  },
-  {
-    id: 29,
-    name: 'Película Vidro',
-    model: 'Redmi A5',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas xiaomi',
-    image: 'PELICULAS/referencia_pelicula_03.jpg'
-  },
-  {
-    id: 30,
-    name: 'Película Vidro',
-    model: 'Redmi Note 13',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas xiaomi',
-    image: 'PELICULAS/referencia_pelicula_03.jpg'
-  },
-  {
-    id: 31,
-    name: 'Película Vidro',
-    model: 'Redmi Note 14',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas xiaomi',
-    image: 'PELICULAS/referencia_pelicula_03.jpg'
-  },
+  {id:32,name:'Película Vidro',model:'Moto G55',price:9.90,stock:2,category:'peliculas motorola',image:'referencia_pelicula_06.jpg'},
+  {id:33,name:'Película Vidro',model:'Moto G75',price:9.90,stock:2,category:'peliculas motorola',image:'referencia_pelicula_06.jpg'},
 
-  // PELÍCULA VIDRO MOTOROLA
-  {
-    id: 32,
-    name: 'Película Vidro',
-    model: 'Moto G55',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas motorola',
-    image: 'PELICULAS/referencia_pelicula_06.jpg'
-  },
-  {
-    id: 33,
-    name: 'Película Vidro',
-    model: 'Moto G75',
-    price: 9.90,
-    stock: 2,
-    category: 'peliculas motorola',
-    image: 'PELICULAS/referencia_pelicula_06.jpg'
-  },
+  {id:34,name:'Capinha Antishock',model:'iPhone',price:9.90,stock:33,category:'capinhas iphone',image:'referencia_capinha_02.jpg'},
 
-  // CAPINHA ANTISHOCK
-  {
-    id: 34,
-    name: 'Capinha Antishock',
-    model: 'Diversos modelos',
-    price: 9.90,
-    stock: 100,
-    category: 'capinhas',
-    image: 'CAPINHAS/referencia_capinha_04.jpg'
-  },
+  {id:35,name:'Capinha MagSafe',model:'iPhone 13 Pro Max',price:19.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_03.jpg'},
+  {id:36,name:'Capinha MagSafe',model:'iPhone 14',price:19.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_03.jpg'},
+  {id:37,name:'Capinha MagSafe',model:'iPhone 14 Pro Max',price:19.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_03.jpg'},
+  {id:38,name:'Capinha MagSafe',model:'iPhone 15',price:19.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_03.jpg'},
+  {id:39,name:'Capinha MagSafe',model:'iPhone 15 Pro Max',price:19.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_03.jpg'},
+  {id:40,name:'Capinha MagSafe',model:'iPhone 16',price:21.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_03.jpg'},
+  {id:41,name:'Capinha MagSafe',model:'iPhone 16 Pro Max',price:21.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_03.jpg'},
+  {id:42,name:'Capinha MagSafe',model:'iPhone 17',price:24.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_03.jpg'},
+  {id:43,name:'Capinha MagSafe',model:'iPhone 17 Pro Max',price:24.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_03.jpg'},
+  {id:44,name:'Capinha MagSafe',model:'iPhone 18 Pro Max',price:29.90,stock:2,category:'capinhas iphone',image:'referencia_capinha_03.jpg'},
+    {id:45,name:'Capinha Silicone',model:'iPhone 13',price:19.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_05.jpg'},
+  {id:46,name:'Capinha Silicone',model:'iPhone 13 Pro Max',price:19.90,stock:2,category:'capinhas iphone',image:'referencia_capinha_05.jpg'},
+  {id:47,name:'Capinha Silicone',model:'iPhone 14',price:19.90,stock:2,category:'capinhas iphone',image:'referencia_capinha_05.jpg'},
+  {id:48,name:'Capinha Silicone',model:'iPhone 14 Pro Max',price:19.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_05.jpg'},
+  {id:49,name:'Capinha Silicone',model:'iPhone 15',price:19.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_05.jpg'},
+  {id:50,name:'Capinha Silicone',model:'iPhone 15 Pro Max',price:19.90,stock:2,category:'capinhas iphone',image:'referencia_capinha_05.jpg'},
+  {id:51,name:'Capinha Silicone',model:'iPhone 16',price:21.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_05.jpg'},
+  {id:52,name:'Capinha Silicone',model:'iPhone 16 Pro Max',price:21.90,stock:2,category:'capinhas iphone',image:'referencia_capinha_05.jpg'},
+  {id:53,name:'Capinha Silicone',model:'iPhone 17',price:24.90,stock:2,category:'capinhas iphone',image:'referencia_capinha_05.jpg'},
+  {id:54,name:'Capinha Silicone',model:'iPhone 17 Pro Max',price:24.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_05.jpg'},
 
-  // MAGSAFE
-  {
-    id: 35,
-    name: 'Capinha MagSafe',
-    model: 'iPhone 13 Pro Max',
-    price: 19.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_03.jpg'
-  },
-  {
-    id: 36,
-    name: 'Capinha MagSafe',
-    model: 'iPhone 14',
-    price: 19.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_03.jpg'
-  },
-  {
-    id: 37,
-    name: 'Capinha MagSafe',
-    model: 'iPhone 14 Pro Max',
-    price: 19.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_03.jpg'
-  },
-  {
-    id: 38,
-    name: 'Capinha MagSafe',
-    model: 'iPhone 15',
-    price: 19.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_03.jpg'
-  },
-  {
-    id: 39,
-    name: 'Capinha MagSafe',
-    model: 'iPhone 15 Pro Max',
-    price: 19.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_03.jpg'
-  },
-  {
-    id: 40,
-    name: 'Capinha MagSafe',
-    model: 'iPhone 16',
-    price: 21.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_03.jpg'
-  },
-  {
-    id: 41,
-    name: 'Capinha MagSafe',
-    model: 'iPhone 16 Pro Max',
-    price: 21.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_03.jpg'
-  },
-  {
-    id: 42,
-    name: 'Capinha MagSafe',
-    model: 'iPhone 17',
-    price: 24.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_03.jpg'
-  },
-  {
-    id: 43,
-    name: 'Capinha MagSafe',
-    model: 'iPhone 17 Pro Max',
-    price: 24.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_03.jpg'
-  },
-  {
-    id: 44,
-    name: 'Capinha MagSafe',
-    model: 'iPhone 18 Pro Max',
-    price: 29.90,
-    stock: 2,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_03.jpg'
-  },
+  {id:55,name:'Capinha Silicone Laranja',model:'iPhone 17 Pro Max',price:29.90,stock:3,category:'capinhas iphone',image:'referencia_capinha_06.jpg'},
 
-  // SILICONE
-  {
-    id: 45,
-    name: 'Capinha Silicone',
-    model: 'iPhone 13',
-    price: 19.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_05.jpg'
-  },
-  {
-    id: 46,
-    name: 'Capinha Silicone',
-    model: 'iPhone 13 Pro Max',
-    price: 19.90,
-    stock: 2,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_05.jpg'
-  },
-  {
-    id: 47,
-    name: 'Capinha Silicone',
-    model: 'iPhone 14',
-    price: 19.90,
-    stock: 2,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_05.jpg'
-  },
-  {
-    id: 48,
-    name: 'Capinha Silicone',
-    model: 'iPhone 14 Pro Max',
-    price: 19.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_05.jpg'
-  },
-  {
-    id: 49,
-    name: 'Capinha Silicone',
-    model: 'iPhone 15',
-    price: 19.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_05.jpg'
-  },
-  {
-    id: 50,
-    name: 'Capinha Silicone',
-    model: 'iPhone 15 Pro Max',
-    price: 19.90,
-    stock: 2,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_05.jpg'
-  },
-  {
-    id: 51,
-    name: 'Capinha Silicone',
-    model: 'iPhone 16',
-    price: 21.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_05.jpg'
-  },
-  {
-    id: 52,
-    name: 'Capinha Silicone',
-    model: 'iPhone 16 Pro Max',
-    price: 21.90,
-    stock: 2,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_05.jpg'
-  },
-  {
-    id: 53,
-    name: 'Capinha Silicone',
-    model: 'iPhone 17',
-    price: 24.90,
-    stock: 2,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_05.jpg'
-  },
-  {
-    id: 54,
-    name: 'Capinha Silicone',
-    model: 'iPhone 17 Pro Max',
-    price: 24.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_05.jpg'
-  },
+  {id:56,name:'Capinha Silicone',model:'Galaxy A26',price:14.90,stock:2,category:'capinhas samsung',image:'referencia_capinha_01.jpg'},
+  {id:57,name:'Capinha Silicone',model:'Galaxy A56',price:14.90,stock:2,category:'capinhas samsung',image:'referencia_capinha_01.jpg'},
+  {id:58,name:'Capinha Silicone',model:'Galaxy S25',price:17.90,stock:2,category:'capinhas samsung',image:'referencia_capinha_01.jpg'},
 
-  // SILICONE LARANJA
-  {
-    id: 55,
-    name: 'Capinha Silicone Laranja',
-    model: 'iPhone 17 Pro Max',
-    price: 29.90,
-    stock: 3,
-    category: 'capinhas iphone',
-    image: 'CAPINHAS/referencia_capinha_06.jpg'
-  },
-
-  // SAMSUNG
-  {
-    id: 56,
-    name: 'Capinha Silicone',
-    model: 'Galaxy A26',
-    price: 14.90,
-    stock: 2,
-    category: 'capinhas samsung',
-    image: 'CAPINHAS/referencia_capinha_01.jpg'
-  },
-  {
-    id: 57,
-    name: 'Capinha Silicone',
-    model: 'Galaxy A56',
-    price: 14.90,
-    stock: 2,
-    category: 'capinhas samsung',
-    image: 'CAPINHAS/referencia_capinha_01.jpg'
-  },
-  {
-    id: 58,
-    name: 'Capinha Silicone',
-    model: 'Galaxy S25',
-    price: 17.90,
-    stock: 2,
-    category: 'capinhas samsung',
-    image: 'CAPINHAS/referencia_capinha_01.jpg'
-  }
-
+  {id:59,name:'Capinha Antishock',model:'Motorola',price:9.90,stock:33,category:'capinhas motorola',image:'referencia_capinha_07.jpg'},
+  {id:60,name:'Capinha Antishock',model:'Xiaomi',price:9.90,stock:33,category:'capinhas xiaomi',image:'referencia_capinha_08.jpg'}
 ];
 
-let cart = JSON.parse(localStorage.getItem('henrikCart') || '[]');
-
+let cart = JSON.parse(localStorage.getItem('henrikCart')) || [];
 let activeFilter = 'todos';
+let searchTerm = '';
 
-const grid = document.getElementById('productGrid');
-const search = document.getElementById('search');
+function formatPrice(value) {
+  return value.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  });
+}
 
-function save() {
+function saveCart() {
   localStorage.setItem('henrikCart', JSON.stringify(cart));
-  renderCart();
 }
 
-function filtered() {
-  const q = search.value.trim().toLowerCase();
+function getFilteredProducts() {
+  return products.filter(p => {
+    const matchesFilter =
+      activeFilter === 'todos' ||
+      p.category.includes(activeFilter);
 
-  return products.filter(p =>
-    (activeFilter === 'todos' || p.category.includes(activeFilter)) &&
-    (!q || (p.name + ' ' + p.model).toLowerCase().includes(q))
-  );
+    const text =
+      `${p.name} ${p.model} ${p.category}`.toLowerCase();
+
+    const matchesSearch =
+      text.includes(searchTerm.toLowerCase());
+
+    return matchesFilter && matchesSearch;
+  });
 }
 
-function render() {
+function renderProducts() {
+  const container =
+    document.querySelector('#products') ||
+    document.querySelector('.products') ||
+    document.querySelector('#productGrid');
 
-  const list = filtered();
+  if (!container) return;
 
-  document.getElementById('resultCount').textContent =
-    `${list.length} ${list.length === 1 ? 'produto' : 'produtos'}`;
+  const filtered = getFilteredProducts();
 
-  grid.innerHTML = list.map(p => `
-
-    <article class="product">
-
-      <div class="photo">
-
-        <span class="tag">
-          ${p.stock > 0 ? 'DISPONÍVEL' : 'ESGOTADO'}
-        </span>
-
-        <img
-          src="${img(p.image)}"
-          alt="${p.name} ${p.model}"
-          loading="lazy"
-        >
-
+  container.innerHTML = filtered.map(p => `
+    <article class="product-card">
+      <div class="product-image">
+        <img src="${img(p.image)}" alt="${p.name} ${p.model}" loading="lazy">
       </div>
 
-      <div class="product-body">
-
+      <div class="product-info">
         <h3>${p.name}</h3>
+        <p class="model">${p.model}</p>
+        <p class="price">${formatPrice(p.price)}</p>
+        <p class="stock">Estoque: ${p.stock}</p>
 
-        <div class="model">
-          ${p.model}
-        </div>
-
-        <div class="price">
-          ${money(p.price)}
-        </div>
-
-        <div class="stock">
-          ${p.stock}
-          ${p.stock === 1 ? 'unidade disponível' : 'unidades disponíveis'}
-        </div>
-
-        <div class="actions">
-
-          <button
-            class="add"
-            onclick="add(${p.id})"
-          >
-            Adicionar
-          </button>
-
-          <button
-            class="details"
-            onclick="details(${p.id})"
-          >
-            Detalhes
-          </button>
-
-        </div>
-
+        <button
+          class="add-to-cart"
+          onclick="addToCart(${p.id})"
+          ${p.stock <= 0 ? 'disabled' : ''}
+        >
+          ${p.stock > 0 ? 'Adicionar ao carrinho' : 'Sem estoque'}
+        </button>
       </div>
-
     </article>
+  `).join('');
 
-  `).join('') || `
-    <div class="empty">
-      Nenhum produto encontrado.
-    </div>
-  `;
+  const count =
+    document.querySelector('#productCount') ||
+    document.querySelector('.product-count');
+
+  if (count) {
+    count.textContent = `${filtered.length} produtos`;
+  }
 }
 
-function add(id) {
+function addToCart(id) {
+  const product = products.find(p => p.id === id);
 
-  const p = products.find(x => x.id === id);
+  if (!product || product.stock <= 0) return;
 
-  const item = cart.find(x => x.id === id);
+  const existing = cart.find(item => item.id === id);
 
-  if (item) {
-
-    if (item.qty < p.stock) {
-      item.qty++;
+  if (existing) {
+    if (existing.quantity >= product.stock) {
+      alert('Quantidade máxima disponível em estoque.');
+      return;
     }
 
+    existing.quantity++;
   } else {
-
     cart.push({
-      id,
-      qty: 1
+      id: product.id,
+      quantity: 1
     });
-
   }
 
-  save();
-
-  openCart();
+  saveCart();
+  renderCart();
+  updateCartCount();
 }
 
-function change(id, d) {
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  saveCart();
+  renderCart();
+  updateCartCount();
+}
 
-  const item = cart.find(x => x.id === id);
+function changeQuantity(id, change) {
+  const item = cart.find(i => i.id === id);
+  const product = products.find(p => p.id === id);
 
-  const p = products.find(x => x.id === id);
+  if (!item || !product) return;
 
-  if (!item) return;
+  item.quantity += change;
 
-  item.qty += d;
-
-  if (item.qty <= 0) {
-
-    cart = cart.filter(x => x.id !== id);
-
-  } else if (item.qty > p.stock) {
-
-    item.qty = p.stock;
-
+  if (item.quantity <= 0) {
+    removeFromCart(id);
+    return;
   }
 
-  save();
+  if (item.quantity > product.stock) {
+    item.quantity = product.stock;
+    alert('Quantidade máxima disponível em estoque.');
+  }
+
+  saveCart();
+  renderCart();
+  updateCartCount();
 }
 
-function renderCart() {
+function getCartTotal() {
+  return cart.reduce((total, item) => {
+    const product = products.find(p => p.id === item.id);
 
-  const box = document.getElementById('cartItems');
+    if (!product) return total;
 
-  let total = 0;
+    return total + product.price * item.quantity;
+  }, 0);
+}
 
-  let count = 0;
+function updateCartCount() {
+  const count = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
-  if (!cart.length) {
+  const elements = document.querySelectorAll(
+    '#cartCount, .cart-count, [data-cart-count]'
+  );
 
-    box.innerHTML = `
-      <div class="empty">
-        Seu carrinho está vazio.
-        <br>
-        Adicione produtos para montar seu pedido.
+  elements.forEach(el => {
+    el.textContent = count;
+  });
+}function renderCart() {
+  const container =
+    document.querySelector('#cartItems') ||
+    document.querySelector('.cart-items');
+
+  const totalElement =
+    document.querySelector('#cartTotal') ||
+    document.querySelector('.cart-total');
+
+  if (!container) return;
+
+  if (cart.length === 0) {
+    container.innerHTML = `
+      <div class="empty-cart">
+        <p>Seu carrinho está vazio.</p>
       </div>
     `;
 
-  } else {
-
-    box.innerHTML = cart.map(i => {
-
-      const p = products.find(x => x.id === i.id);
-
-      total += p.price * i.qty;
-
-      count += i.qty;
-
-      return `
-
-        <div class="cart-item">
-
-          <img
-            src="${img(p.image)}"
-            alt=""
-          >
-
-          <div>
-
-            <h4>${p.name}</h4>
-
-            <small>${p.model}</small>
-
-            <div class="qty">
-
-              <button onclick="change(${p.id},-1)">
-                −
-              </button>
-
-              <b>${i.qty}</b>
-
-              <button onclick="change(${p.id},1)">
-                +
-              </button>
-
-            </div>
-
-          </div>
-
-          <div>
-
-            <b>
-              ${money(p.price * i.qty)}
-            </b>
-
-            <button
-              class="remove"
-              onclick="change(${p.id},-${i.qty})"
-            >
-              remover
-            </button>
-
-          </div>
-
-        </div>
-
-      `;
-
-    }).join('');
-
-  }
-
-  document.getElementById('cartTotal').textContent = money(total);
-
-  document.getElementById('cartCount').textContent = count;
-}
-
-function openCart() {
-
-  document
-    .getElementById('cart')
-    .classList.add('open');
-
-  document
-    .getElementById('overlay')
-    .classList.add('show');
-}
-
-function closeCart() {
-
-  document
-    .getElementById('cart')
-    .classList.remove('open');
-
-  document
-    .getElementById('overlay')
-    .classList.remove('show');
-}
-
-function details(id) {
-
-  const p = products.find(x => x.id === id);
-
-  document.getElementById('modalContent').innerHTML = `
-
-    <div class="modal-content">
-
-      <img
-        class="modal-img"
-        src="${img(p.image)}"
-        alt="${p.name} ${p.model}"
-      >
-
-      <h2>
-        ${p.name}
-      </h2>
-
-      <div class="model-list">
-
-        <strong>Modelo:</strong>
-        ${p.model}
-
-        <br>
-
-        <strong>Disponibilidade:</strong>
-        ${p.stock} unidade(s)
-
-      </div>
-
-      <div class="modal-price">
-        ${money(p.price)}
-      </div>
-
-      <button
-        class="whatsapp-button"
-        onclick="
-          add(${p.id});
-          document.getElementById('productModal').classList.remove('show')
-        "
-      >
-        Adicionar ao carrinho
-      </button>
-
-    </div>
-
-  `;
-
-  document
-    .getElementById('productModal')
-    .classList.add('show');
-}
-
-document
-  .querySelectorAll('.filter')
-  .forEach(b => {
-
-    b.onclick = () => {
-
-      document
-        .querySelectorAll('.filter')
-        .forEach(x => x.classList.remove('active'));
-
-      b.classList.add('active');
-
-      activeFilter = b.dataset.filter;
-
-      render();
-
-    };
-
-  });
-
-search.addEventListener('input', render);
-
-document
-  .getElementById('openCart')
-  .onclick = openCart;
-
-document
-  .getElementById('closeCart')
-  .onclick = closeCart;
-
-document
-  .getElementById('overlay')
-  .onclick = closeCart;
-
-document
-  .getElementById('closeModal')
-  .onclick = () =>
-    document
-      .getElementById('productModal')
-      .classList.remove('show');
-
-document
-  .getElementById('clearCart')
-  .onclick = () => {
-
-    cart = [];
-
-    save();
-
-  };
-
-document
-  .getElementById('checkout')
-  .onclick = () => {
-
-    if (!cart.length) {
-
-      alert(
-        'Adicione pelo menos um produto ao carrinho.'
-      );
-
-      return;
-
+    if (totalElement) {
+      totalElement.textContent = formatPrice(0);
     }
 
-    let total = 0;
+    return;
+  }
 
-    const lines = cart.map(i => {
+  container.innerHTML = cart.map(item => {
+    const product = products.find(p => p.id === item.id);
 
-      const p = products.find(x => x.id === i.id);
+    if (!product) return '';
 
-      total += p.price * i.qty;
+    const subtotal = product.price * item.quantity;
 
-      return `• ${i.qty}x ${p.name} — ${p.model} — ${money(p.price * i.qty)}`;
+    return `
+      <div class="cart-item">
+        <img
+          src="${img(product.image)}"
+          alt="${product.name}"
+        >
 
+        <div class="cart-item-info">
+          <h4>${product.name}</h4>
+          <p>${product.model}</p>
+          <strong>${formatPrice(product.price)}</strong>
+
+          <div class="quantity-controls">
+            <button onclick="changeQuantity(${product.id}, -1)">−</button>
+            <span>${item.quantity}</span>
+            <button onclick="changeQuantity(${product.id}, 1)">+</button>
+          </div>
+        </div>
+
+        <div class="cart-item-right">
+          <strong>${formatPrice(subtotal)}</strong>
+          <button
+            class="remove-item"
+            onclick="removeFromCart(${product.id})"
+          >
+            Remover
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if (totalElement) {
+    totalElement.textContent = formatPrice(getCartTotal());
+  }
+}
+
+function checkoutWhatsApp() {
+  if (cart.length === 0) {
+    alert('Seu carrinho está vazio.');
+    return;
+  }
+
+  let message = 'Olá! Quero fazer um pedido na Henrik Store.%0A%0A';
+
+  cart.forEach(item => {
+    const product = products.find(p => p.id === item.id);
+
+    if (!product) return;
+
+    const subtotal = product.price * item.quantity;
+
+    message +=
+      `• ${product.name} - ${product.model}%0A` +
+      `  Quantidade: ${item.quantity}%0A` +
+      `  Valor: ${formatPrice(subtotal)}%0A%0A`;
+  });
+
+  message += `Total: ${formatPrice(getCartTotal())}%0A%0A`;
+  message += 'Aguardo informações para finalizar o pedido.';
+
+  const url =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+
+  window.open(url, '_blank');
+}
+
+function setupFilters() {
+  const buttons = document.querySelectorAll(
+    '[data-filter], .filter-btn, .category-btn'
+  );
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter =
+        button.dataset.filter ||
+        button.dataset.category ||
+        button.getAttribute('data-category');
+
+      if (!filter) return;
+
+      activeFilter = filter.toLowerCase();
+
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      button.classList.add('active');
+
+      renderProducts();
     });
+  });
+}
 
-    const text = `
-Olá! Quero fazer um pedido na Henrik Store:
+function setupSearch() {
+  const search =
+    document.querySelector('#search') ||
+    document.querySelector('#searchInput') ||
+    document.querySelector('.search-input');
 
-${lines.join('\n')}
+  if (!search) return;
 
-Total: ${money(total)}
+  search.addEventListener('input', event => {
+    searchTerm = event.target.value;
+    renderProducts();
+  });
+}
 
-Aguardo confirmação da disponibilidade.
-`;
+function setupCartButtons() {
+  const openButtons = document.querySelectorAll(
+    '#openCart, .open-cart, [data-open-cart]'
+  );
 
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
-      '_blank'
-    );
+  const closeButtons = document.querySelectorAll(
+    '#closeCart, .close-cart, [data-close-cart]'
+  );
 
-  };
+  const cartElement =
+    document.querySelector('#cart') ||
+    document.querySelector('.cart-sidebar') ||
+    document.querySelector('.cart-modal');
 
-render();
+  openButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (cartElement) {
+        cartElement.classList.add('open');
+      }
+    });
+  });
 
-renderCart();
+  closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (cartElement) {
+        cartElement.classList.remove('open');
+      }
+    });
+  });
+}
+
+function setupCheckout() {
+  const buttons = document.querySelectorAll(
+    '#checkoutWhatsApp, .checkout-whatsapp, [data-checkout]'
+  );
+
+  buttons.forEach(button => {
+    button.addEventListener('click', checkoutWhatsApp);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+  renderCart();
+  updateCartCount();
+  setupFilters();
+  setupSearch();
+  setupCartButtons();
+  setupCheckout();
+});
